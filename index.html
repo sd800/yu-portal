@@ -40,16 +40,20 @@
 
 <section class="content wrapper">
 
-	<h2>— Academics —</h2><ul>
+	<h2>— Study —</h2><ul>
 		<li><p class="description"> <a href="https://canvas.ucsd.edu/">Canvas</a></p> </li>
 		<li><p class="description"> <a href="https://www.gradescope.com/">Gradescope</a></p> </li>
 		<li><p class="description"> <a href="https://podcast.ucsd.edu/">Podcast</a></p> </li>
 		<li><p class="description"> <a href="https://piazza.com/class">Piazza</a></p> </li>
+		<li><p class="description"> <a href="https://brytewave.redshelf.com/">Psych Book</a></p> </li>
+		<li><p class="description"> <a href="https://chatgpt.com/">ChatGPT</a></p> </li>
+	</ul><br><br><br>
+
+	<h2>— Academics —</h2><ul>
 		<li><p class="description"> <a href="https://catalog.ucsd.edu/front/courses.html">Catalog</a></p> </li>
 		<li><p class="description"> <a href="https://act.ucsd.edu/webreg2">Register</a></p> </li>
 		<li><p class="description"> <a href="https://act.ucsd.edu/studentAcademicHistory/academichistorystudentdisplay.htm">View Grades</a></p> </li>
-		<li><p class="description"> <a href="https://chatgpt.com/">ChatGPT</a></p> </li>
-		<li><p class="description"> <a href="https://brytewave.redshelf.com/">Psych Book</a></p> </li>
+		<li><p class="description"> <a id="reg-cal-link" href="#">Registration Calendar</a></p> </li>
 	</ul><br><br><br>
 
 	<h2>— Facilities —</h2><ul>
@@ -83,9 +87,29 @@
     });
   });
 </script>
+<script>
+  // Get today's date
+  const today = new Date();
+
+  // Determine academic year based on Sept–Aug cycle
+  let year;
+  if (today.getMonth() >= 8) {
+    // If it's September (month 8) or later, academic year starts this year
+    year = today.getFullYear();
+  } else {
+    // Otherwise, academic year started last year
+    year = today.getFullYear() - 1;
+  }
+
+  // Update the link
+  const link = document.getElementById("reg-cal-link");
+  link.href = `https://blink.ucsd.edu/instructors/courses/enrollment/calendars/${year + 1}.html`;
+  link.textContent = `Registration Calendar (${year}-${year + 1})`;
+</script>
 </body>
 	
 </html>
+
 
 
 
